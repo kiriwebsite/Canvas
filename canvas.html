@@ -37,8 +37,10 @@
     ctx.fill();
 
     // 繪製圓形
-    arc(x,y,r,startAngel,endAngle); // x,y=中心點、r=半徑、startAngel=開始角度、endAngle=結束角度
-                                    // 0 ~ 360 = 0 ~ 2*Math.PI
+    ctx.beginPath();
+    arc(x,y,r,startAngel,endAngle,true); // x,y=中心點、r=半徑、startAngel=開始角度、endAngle=結束角度、true=順時針
+                                        // 0 ~ 360 = 0 ~ Math.PI*2
+    ctx.closePath();
 
     // 時間函數
     requestAnimationFrame(update); // 給一個函數，它會幫忙判斷什麼時候適合更新動畫
