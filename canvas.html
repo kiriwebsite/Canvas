@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>
+
+<script>
+    // init canvas
+    var canvas = document.getElementById('mycanvas');
+    var ctx = canvas.getContext('2d'); // 指定繪圖介面，有函數可以使用
+
+    // 設定畫布尺寸
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // 基本圖形-Rectagle
+    fillRect(x,y,width,height);
+    strokeRect(x,y,width,height);
+    clearRect(x,y,width,height);
+
+    // 路徑繪圖範例
+    ctx.beginPath();
+    ctx.moveTo(100,150);
+    ctx.lineTo(200,150);
+    ctx.lineTo(150,50);
+    ctx.closePath();
+    ctx.strokeStyle = 'pink';
+    ctx.fillStyle = 'skyblue';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    ctx.fill();
+
+    // 繪製圓形
+    arc(x,y,r,startAngel,endAngle); // x,y=中心點、r=半徑、startAngel=開始角度、endAngle=結束角度
+                                    // 0 ~ 360 = 0 ~ 2*Math.PI
+
+    // 時間函數
+    requestAnimationFrame(update); // 給一個函數，它會幫忙判斷什麼時候適合更新動畫
+
+    // 更新影格：蓋掉之前畫的，畫上新位置
+    // 使用clearRect()、fillRect()
+</script>
